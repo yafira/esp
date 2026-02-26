@@ -9,6 +9,13 @@ function splitList(val, regex) {
     .filter(Boolean);
 }
 
+function pick(obj, ...keys) {
+  for (const k of keys) {
+    if (obj?.[k] != null && String(obj[k]).trim() !== "") return obj[k];
+  }
+  return "";
+}
+
 export async function GET() {
   try {
     const url = process.env.SHEETSDB_URL;
@@ -21,33 +28,41 @@ export async function GET() {
 
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) {
+      const text = await res.text();
       return NextResponse.json(
-        { error: "failed_to_fetch_sheetdb", status: res.status },
+        { error: "sheetdb_fetch_failed", status: res.status, detail: text },
         { status: 500 },
       );
     }
 
     const raw = await res.json();
-    const items = (Array.isArray(raw) ? raw : []).map((item) => {
-      const next = { ...item };
+    const rows = Array.isArray(raw) ? raw : [];
 
-      // match old behavior
-      if (next["Category"])
-        next.Category = splitList(next["Category"], /;\s*/g);
-      else next.Category = [];
+    const items = rows.map((r) => {
+      const Resource = String(
+        pick(r, "Resource", "resource", "Title", "title"),
+      ).trim();
+      const Link = String(pick(r, "Link", "link", "URL", "url")).trim();
 
-      if (next["Continent"])
-        next.Continent = splitList(next["Continent"], /,\s*/g);
-      else next.Continent = [];
-
-      // normalize common fields
-      next.Resource = String(next["Resource"] || "").trim();
-      next.Link = String(next["Link"] || "").trim();
-      next.Format = String(next["Format"] || "").trim();
-      next.Creator = String(next["Creator"] || "").trim();
-      next.Image = String(next["Image"] || "").trim();
-
-      return next;
+      return {
+        Researcher: String(pick(r, "Researcher", "researcher")).trim(),
+        Professor: String(pick(r, "Professor", "professor")).trim(),
+        Class: String(pick(r, "Class", "class")).trim(),
+        Resource,
+        Link,
+        Format: String(pick(r, "Format", "format")).trim(),
+        Creator: String(pick(r, "Creator", "creator")).trim(),
+        CreatorRole: String(
+          pick(r, "Creator Role", "CreatorRole", "creator_role"),
+        ).trim(),
+        AuthorLink: String(
+          pick(r, "Author Link", "AuthorLink", "author_link"),
+        ).trim(),
+        Keywords: String(pick(r, "Keywords", "keywords")).trim(),
+        Category: splitList(pick(r, "Category", "category"), /;\s*/g),
+        Continent: splitList(pick(r, "Continent", "continent"), /,\s*/g),
+        Image: String(pick(r, "Image", "image")).trim(),
+      };
     });
 
     return NextResponse.json({ items });
