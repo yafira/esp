@@ -1,152 +1,93 @@
-"use client";
+import Link from "next/link";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import DBCard from "./components/DBCard";
-import Filter from "./components/Filter";
-
-function splitList(val, delimiterRegex) {
-  const s = String(val || "").trim();
-  if (!s) return [];
-  return s
-    .split(delimiterRegex)
-    .map((x) => x.trim())
-    .filter(Boolean);
+function Doodles() {
+  return (
+    <>
+      <div className="doodle doodle-star" aria-hidden="true">
+        ✦
+      </div>
+      <div className="doodle doodle-squiggle" aria-hidden="true">
+        ~~~
+      </div>
+      <div className="doodle doodle-flower" aria-hidden="true">
+        ❁
+      </div>
+      <div className="tape tape-left" aria-hidden="true" />
+      <div className="tape tape-right" aria-hidden="true" />
+    </>
+  );
 }
 
-export default function DatabasePage() {
-  const [data, setData] = useState([[], [], []]); // [default, reversed, title]
-  const [loading, setLoading] = useState(true);
-  const [resultCount, setResultCount] = useState(0);
-
-  const [formatList, setFormatList] = useState([]);
-  const [contList, setContList] = useState([]);
-  const [catList, setCatList] = useState([]);
-  const [sort, setSort] = useState(0);
-
-  const fetchData = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/resources", { cache: "no-store" });
-      const json = await res.json();
-      const raw = Array.isArray(json.items) ? json.items : [];
-
-      const updated = raw.map((item) => {
-        const next = { ...item };
-
-        // optional fields if your sheet includes them
-        if (next["Category"] && String(next["Category"]).trim()) {
-          // old site used "; "
-          next.Category = splitList(next["Category"], /;\s*/g);
-        } else {
-          next.Category = [];
-        }
-
-        if (next["Continent"] && String(next["Continent"]).trim()) {
-          // old site used ", "
-          next.Continent = splitList(next["Continent"], /,\s*/g);
-        } else {
-          next.Continent = [];
-        }
-
-        // normalize common fields (avoid undefined)
-        next.Resource = String(next["Resource"] || next.Resource || "").trim();
-        next.Link = String(next["Link"] || next.Link || "").trim();
-        next.Format = String(next["Format"] || next.Format || "").trim();
-        next.Creator = String(next["Creator"] || next.Creator || "").trim();
-        next.Professor = String(
-          next["Professor"] || next.Professor || "",
-        ).trim();
-        next.Class = String(next["Class"] || next.Class || "").trim();
-        next.Keywords = String(next["Keywords"] || next.Keywords || "").trim();
-        next.Image = String(next["Image"] || next.Image || "").trim();
-
-        return next;
-      });
-
-      const revArray = [...updated].slice().reverse();
-
-      const nameArray = [...updated].sort((a, b) => {
-        const a1 = (a.Resource || "").toLowerCase();
-        const b1 = (b.Resource || "").toLowerCase();
-        return a1 < b1 ? -1 : a1 > b1 ? 1 : 0;
-      });
-
-      setData([updated, revArray, nameArray]);
-      setResultCount(updated.length);
-    } catch (e) {
-      setData([[], [], []]);
-      setResultCount(0);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-
-  const activeData = useMemo(() => data[sort] || [], [data, sort]);
-
+export default function HomePage() {
   return (
-    <div className="db section--top">
-      <div className="db__section db__section--filter">
-        <Filter
-          formatList={formatList}
-          setFormatList={setFormatList}
-          contList={contList}
-          setContList={setContList}
-          catList={catList}
-          setCatList={setCatList}
-        />
-      </div>
+    <main className="home">
+      <section className="hero">
+        <Doodles />
 
-      <div className="db__vl" />
+        <div className="hero-inner">
+          <div className="hero-badge">built for ITP/IMA professors</div>
 
-      <div className="db__section db__section--content">
-        <div className="db__tab">
-          <ul className="tab__list">
-            <li
-              className={
-                sort === 0 ? "tab__item tab__item--selected" : "tab__item"
-              }
-              onClick={() => setSort(0)}
-            >
-              Ascending Date
-            </li>
-            <li
-              className={
-                sort === 1 ? "tab__item tab__item--selected" : "tab__item"
-              }
-              onClick={() => setSort(1)}
-            >
-              Descending Date
-            </li>
-            <li
-              className={
-                sort === 2 ? "tab__item tab__item--selected" : "tab__item"
-              }
-              onClick={() => setSort(2)}
-            >
-              Title
-            </li>
-          </ul>
+          <h1 className="hero-title">Making Education More Inclusive</h1>
 
-          <p className="tab__count">{`${resultCount} results`}</p>
+          <p className="hero-subtitle">
+            Free tools and frameworks to help you create an equity-aligned
+            syllabus.
+          </p>
+
+          <div className="hero-actions">
+            <Link className="button button-blue" href="/guide">
+              Syllabus Guide
+            </Link>
+            <Link className="button button-pink" href="/database">
+              Research Database
+            </Link>
+          </div>
+
+          <p className="hero-note">
+            A syllabus is more than a contract. It is a collaboration.
+          </p>
+
+          <div className="hero-learn">
+            <Link href="/about" className="learn-link">
+              learn more →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-grid container">
+        <div className="panel panel-cream">
+          <h2>Syllabus Improvement Services</h2>
+          <p>
+            Request support reviewing a syllabus, identifying gaps, and
+            expanding readings with equity-aligned resources.
+          </p>
+          <Link className="button button-mint" href="/research-service">
+            Get Research Service
+          </Link>
         </div>
 
-        <DBCard
-          formatList={formatList}
-          contList={contList}
-          catList={catList}
-          setResultCount={setResultCount}
-          data={activeData}
-          loading={loading}
-        />
-      </div>
-    </div>
+        <div className="panel panel-lav">
+          <h2>Contribute</h2>
+          <p>
+            Suggest resources, share frameworks, and help grow the research
+            database.
+          </p>
+          <Link className="button button-ink" href="/contribute">
+            Suggest Resources
+          </Link>
+        </div>
+
+        <div className="panel panel-blue">
+          <h2>Meet the Team</h2>
+          <p>
+            Learn about the researchers, collaborators, and values behind ESP.
+          </p>
+          <Link className="button button-ink" href="/team">
+            Meet the Team
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
