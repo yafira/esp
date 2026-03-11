@@ -16,23 +16,23 @@ body {
   --font-site: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --ink: #17161a;
-  --paper: #fbfbff;
+  --ink: #1e1b18;
+  --paper: #f5f0e8;
 
-  --muted: rgba(23, 22, 26, 0.68);
-  --muted2: rgba(23, 22, 26, 0.52);
+  --muted: rgba(30, 27, 24, 0.68);
+  --muted2: rgba(30, 27, 24, 0.52);
 
-  --border: rgba(23, 22, 26, 0.18);
-  --border-strong: rgba(23, 22, 26, 0.9);
+  --border: rgba(30, 27, 24, 0.18);
+  --border-strong: rgba(30, 27, 24, 0.9);
 
-  --purple: #6b33ff;
-  --purple2: #9a7bff;
-  --purple-soft: rgba(107, 51, 255, 0.14);
+  --purple: #7c4dcc;
+  --purple2: #a98be0;
+  --purple-soft: rgba(124, 77, 204, 0.12);
 
   --pink: #ffb3d7;
-  --blue: #79a7ff;
-  --cream: #fff3d8;
-  --mint: #18a2a2;
+  --blue: #a8d5b5;
+  --cream: #fef0dc;
+  --lavender: #d4bbf5;
 
   --shadow: 0 26px 60px rgba(10, 10, 20, 0.14);
   --shadow-soft: 0 12px 26px rgba(10, 10, 20, 0.1);
@@ -55,7 +55,7 @@ a {
 }
 
 ::selection {
-  background: rgba(107, 51, 255, 0.22);
+  background: rgba(124, 77, 204, 0.22);
 }
 
 /* Syne for all headings and nav */
@@ -91,7 +91,7 @@ h6,
   top: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: rgba(251, 251, 255, 0.82);
+  background: rgba(245, 240, 232, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 2px solid transparent;
@@ -137,7 +137,7 @@ h6,
   height: 8px;
   border-radius: 99px;
   background: var(--purple);
-  box-shadow: 0 0 0 4px rgba(107, 51, 255, 0.18);
+  box-shadow: 0 0 0 4px rgba(124, 77, 204, 0.18);
   flex-shrink: 0;
 }
 
@@ -163,7 +163,7 @@ h6,
 }
 
 .nav-link:hover {
-  background: rgba(107, 51, 255, 0.08);
+  background: rgba(124, 77, 204, 0.08);
   color: var(--ink);
   transform: translateY(-1px);
 }
@@ -193,9 +193,9 @@ h6,
 }
 
 .nav-cta:hover {
-  background: var(--purple);
+  background: #6a3ab8;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(107, 51, 255, 0.28);
+  box-shadow: 0 8px 20px rgba(124, 77, 204, 0.28);
 }
 
 .nav-cta--active {
@@ -251,7 +251,7 @@ h6,
   top: var(--nav-h);
   left: 0;
   right: 0;
-  background: rgba(251, 251, 255, 0.97);
+  background: rgba(245, 240, 232, 0.97);
   backdrop-filter: blur(14px);
   border-bottom: 2px solid rgba(23, 22, 26, 0.12);
   display: flex;
@@ -318,6 +318,7 @@ h6,
   display: grid;
   place-items: center;
   padding: 0 16px;
+  overflow: visible;
 }
 
 .hero3::before {
@@ -328,17 +329,17 @@ h6,
   background:
     radial-gradient(
       620px 280px at 18% 20%,
-      rgba(107, 51, 255, 0.11),
+      rgba(249, 180, 120, 0.13),
       transparent 60%
     ),
     radial-gradient(
       560px 260px at 82% 26%,
-      rgba(255, 179, 215, 0.17),
+      rgba(168, 213, 181, 0.16),
       transparent 60%
     ),
     radial-gradient(
       680px 340px at 55% 75%,
-      rgba(121, 167, 255, 0.15),
+      rgba(200, 170, 230, 0.13),
       transparent 65%
     );
   pointer-events: none;
@@ -347,26 +348,13 @@ h6,
 /* poster canvas */
 .hero3-paper {
   width: min(1080px, 94vw);
-  border-radius: 28px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid rgba(23, 22, 26, 0.14);
-  box-shadow: var(--shadow);
   position: relative;
-  overflow: hidden;
   padding: 24px 22px 28px;
 }
 
-/* notebook grid */
+/* notebook grid removed */
 .hero3-paper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(23, 22, 26, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(23, 22, 26, 0.04) 1px, transparent 1px);
-  background-size: 58px 58px;
-  opacity: 0.4;
-  pointer-events: none;
+  display: none;
 }
 
 .hero3-margin {
@@ -405,9 +393,9 @@ h6,
   display: inline-block;
   padding: 24px 32px;
   border-radius: 26px;
-  background: var(--pink);
-  border: 4px solid rgba(23, 22, 26, 0.9);
-  box-shadow: 6px 6px 0 rgba(23, 22, 26, 0.9);
+  background: var(--lavender);
+  border: 4px solid rgba(30, 27, 24, 0.9);
+  box-shadow: 6px 6px 0 rgba(30, 27, 24, 0.9);
   transform: rotate(-0.7deg);
   text-align: center;
   font-size: clamp(44px, 6vw, 76px);
@@ -511,12 +499,12 @@ h6,
 }
 
 .cta3-primary {
-  background: var(--blue);
-  color: rgba(23, 22, 26, 0.92);
+  background: #a8d5b5;
+  color: rgba(30, 27, 24, 0.92);
 }
 .cta3-ghost {
-  background: #18a2a2;
-  color: rgba(23, 22, 26, 0.92);
+  background: var(--pink);
+  color: rgba(30, 27, 24, 0.92);
 }
 
 /* meta strip */
@@ -538,7 +526,7 @@ h6,
     background 0.14s ease;
 }
 .meta3:hover {
-  border-color: rgba(107, 51, 255, 0.4);
+  border-color: rgba(124, 77, 204, 0.4);
   background: rgba(255, 255, 255, 0.95);
 }
 
@@ -589,7 +577,7 @@ h6,
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(249, 239, 220);
+  background: #fef0dc;
   opacity: 0;
   transition: opacity 0.18s ease;
   pointer-events: none;
@@ -736,7 +724,7 @@ h6,
 }
 .db-search:focus {
   border-color: var(--purple);
-  box-shadow: 0 0 0 4px rgba(107, 51, 255, 0.18);
+  box-shadow: 0 0 0 4px rgba(124, 77, 204, 0.18);
 }
 
 .db-count {
@@ -803,7 +791,7 @@ h6,
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(107, 51, 255, 0.1),
+    rgba(124, 77, 204, 0.1),
     rgba(255, 179, 215, 0.14),
     rgba(121, 167, 255, 0.1)
   );
@@ -842,7 +830,7 @@ h6,
 }
 .db-card2:hover .db-card2-corner {
   transform: rotate(0deg) scale(1.04);
-  background: rgba(107, 51, 255, 0.12);
+  background: rgba(124, 77, 204, 0.12);
 }
 
 .db-card2-title {
@@ -953,8 +941,8 @@ h6,
 
 /* FOOTER */
 .footer {
-  border-top: 2px solid rgba(23, 22, 26, 0.12);
-  background: rgba(255, 255, 255, 0.7);
+  border-top: 2px solid rgba(30, 27, 24, 0.1);
+  background: rgba(245, 240, 232, 0.7);
   padding: 40px 0 32px;
 }
 
@@ -1159,8 +1147,8 @@ h6,
 }
 
 .tag-pill--on:hover {
-  background: #5522ee;
-  border-color: #5522ee;
+  background: #6a3ab8;
+  border-color: #6a3ab8;
   color: #fff;
   transform: translateY(-1px);
 }
@@ -1212,7 +1200,7 @@ h6,
   transition: background 0.13s ease;
 }
 .db-active-tag:hover {
-  background: rgba(107, 51, 255, 0.24);
+  background: rgba(124, 77, 204, 0.24);
 }
 
 /* CARD CHIPS */
@@ -1385,7 +1373,7 @@ h6,
   border-color: var(--purple);
   color: var(--purple);
   transform: translateY(-1px);
-  box-shadow: 2px 3px 0 rgba(107, 51, 255, 0.18);
+  box-shadow: 2px 3px 0 rgba(124, 77, 204, 0.18);
 }
 .tag-pill--on {
   background: var(--purple);
@@ -1395,8 +1383,8 @@ h6,
   transform: translateY(-1px);
 }
 .tag-pill--on:hover {
-  background: #5522ee;
-  border-color: #5522ee;
+  background: #6a3ab8;
+  border-color: #6a3ab8;
 }
 
 .db-suggest-btn {
@@ -1440,7 +1428,7 @@ h6,
   transition: background 0.12s;
 }
 .db-active-tag:hover {
-  background: rgba(107, 51, 255, 0.22);
+  background: rgba(124, 77, 204, 0.22);
 }
 
 /* CARD CHIPS */
@@ -1603,6 +1591,7 @@ h6,
     display: none;
   }
 }
+
 @media (max-width: 720px) {
   .db-layout {
     grid-template-columns: 1fr;
@@ -1667,4 +1656,90 @@ h6,
 .skeleton-shorter {
   height: 12px;
   width: 35%;
+}
+
+/* DOODLE DECORATIONS */
+.hero3-paper {
+  position: relative;
+}
+
+.doodle {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.doodle--squiggle-b {
+  width: 110px;
+  bottom: 110px;
+  left: 28px;
+  transform: rotate(-3deg);
+  animation: doodle-float 8s ease-in-out infinite 0.8s;
+}
+
+/* wavy underline */
+.hero3-subheadline {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes doodle-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-7px) rotate(var(--r, 0deg));
+  }
+}
+
+.doodle--squiggle-b {
+  --r: -3deg;
+}
+
+@media (max-width: 720px) {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doodle {
+    animation: none !important;
+  }
+}
+
+.doodle--sparkstar-tr {
+  width: 72px;
+  top: 20px;
+  right: 36px;
+  animation: doodle-float 6s ease-in-out infinite;
+}
+
+.doodle--star-img {
+  width: 80px;
+  top: 28px;
+  left: 28px;
+  transform: rotate(-6deg);
+  animation: doodle-float 5.5s ease-in-out infinite 0.5s;
+}
+
+.doodle--paper {
+  position: fixed;
+  width: 200px;
+  top: 60px;
+  right: -50px;
+  transform: rotate(18deg);
+  animation: doodle-float 7s ease-in-out infinite;
+  --r: 18deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .doodle--paper {
+    width: 130px;
+    right: -30px;
+    top: 50px;
+  }
 }

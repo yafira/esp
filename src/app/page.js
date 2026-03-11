@@ -1,18 +1,54 @@
-// HomePage.jsx — drop into your Next.js project
-// Requires: globals.css (updated tokens below)
-// Uses: Link from next/link
-
 import Link from "next/link";
+
+function DoodleSquiggle({ className }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 120 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M4 20 C14 8, 24 32, 34 20 C44 8, 54 32, 64 20 C74 8, 84 32, 94 20 C104 8, 114 32, 120 20"
+        stroke="#a8d5b5"
+        strokeWidth="3.5"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.8"
+      />
+    </svg>
+  );
+}
 
 export default function HomePage() {
   return (
     <main className="home3">
-      {/* ── HERO ─────────────────────────────────── */}
       <section className="hero3" aria-labelledby="hero-title">
         <div className="hero3-paper">
-          {/* faint grid is via ::before in CSS */}
+          <DoodleSquiggle className="doodle doodle--squiggle-b" />
 
-          {/* ── BODY ─────────────────────────────── */}
+          <img
+            src="/paper.png"
+            alt=""
+            aria-hidden="true"
+            className="doodle doodle--paper"
+          />
+          <img
+            src="/star.png"
+            alt=""
+            aria-hidden="true"
+            className="doodle doodle--star-img"
+          />
+
+          {/* NOTEBOOK IMAGE */}
+          <img
+            src="/paper.png"
+            alt=""
+            aria-hidden="true"
+            className="doodle doodle--paper"
+          />
+
           <div className="hero3-body">
             <div className="hero3-eyebrow" aria-hidden="true">
               <span className="dot3" />
@@ -47,7 +83,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* ── STAT ROW ─────────────────────────── */}
           <div className="hero3-meta" role="list" aria-label="Quick facts">
             <div className="meta3" role="listitem">
               <div className="meta3-k">Use it for</div>
@@ -67,7 +102,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* ── CARD DECK ────────────────────────── */}
           <div className="hero3-deck">
             <Link className="card3" href="/guide">
               <div className="card3-top">
