@@ -247,9 +247,15 @@ export default function DatabasePage() {
               const chips = [...(it.Category || []), ...(it.Continent || [])];
               return (
                 <div className="db-card2" key={`${it.Link}-${idx}`}>
-                  <div className="db-card2-corner" aria-hidden="true">
+                  <a
+                    href={it.Link || "#"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="db-card2-corner"
+                    aria-label={`Open ${it.Resource}`}
+                  >
                     ↗
-                  </div>
+                  </a>
                   <div className="db-card2-title">
                     <a href={it.Link || "#"} target="_blank" rel="noreferrer">
                       {it.Resource || "Untitled"}
@@ -266,12 +272,6 @@ export default function DatabasePage() {
                       <div className="db-kv-row">
                         <div className="db-kv-key">Format</div>
                         <div className="db-kv-value">{it.Format}</div>
-                      </div>
-                    )}
-                    {it.Class && (
-                      <div className="db-kv-row">
-                        <div className="db-kv-key">Class</div>
-                        <div className="db-kv-value">{it.Class}</div>
                       </div>
                     )}
                   </div>
