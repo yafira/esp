@@ -841,6 +841,7 @@ h6,
     transform 0.14s ease,
     background 0.14s ease;
   z-index: 2;
+  text-decoration: none;
 }
 .db-card2:hover .db-card2-corner {
   transform: rotate(0deg) scale(1.04);
