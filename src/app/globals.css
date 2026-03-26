@@ -499,7 +499,7 @@ h6,
 }
 
 .cta3-primary {
-  background: #6aab8e;
+  background: #9898e0;
   color: #fff;
 }
 .cta3-ghost {
@@ -560,7 +560,7 @@ h6,
 .card3 {
   border-radius: 22px;
   border: 3px solid rgba(23, 22, 26, 0.9);
-  background: rgba(255, 255, 255, 0.9);
+  background: #fdf8f2;
   padding: 18px 16px 16px;
   text-decoration: none;
   box-shadow: 4px 4px 0 rgba(23, 22, 26, 0.9);
@@ -623,11 +623,11 @@ h6,
   border-color: rgba(23, 22, 26, 0.85);
 }
 .pill3-database {
-  background: var(--pink);
+  background: #b8b8f0;
   border-color: rgba(23, 22, 26, 0.85);
 }
 .pill3-service {
-  background: var(--blue);
+  background: #f5e6a0;
   border-color: rgba(23, 22, 26, 0.85);
 }
 
@@ -1723,9 +1723,9 @@ h6,
 }
 
 .doodle--star-img {
-  width: 80px;
-  top: 28px;
-  left: 28px;
+  width: 72px;
+  top: 120px;
+  left: 48px;
   transform: rotate(-6deg);
   animation: doodle-float 5.5s ease-in-out infinite 0.5s;
 }
@@ -1782,14 +1782,14 @@ h6,
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 180px;
+  width: 220px;
 }
 
 /* AVATAR + HOVER OVERLAY */
 .team-avatar {
   position: relative;
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border-radius: 20px;
   border: 3px solid rgba(30, 27, 24, 0.9);
   box-shadow: 4px 4px 0 rgba(30, 27, 24, 0.9);
@@ -1892,10 +1892,10 @@ h6,
 
 @media (max-width: 600px) {
   .team-card {
-    width: 140px;
+    width: 160px;
   }
   .team-avatar {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
 }

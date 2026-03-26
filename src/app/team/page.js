@@ -51,6 +51,16 @@ const TEAM = [
     role: "Equity Frameworks",
     bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
   },
+  {
+    name: "Member Name",
+    role: "Syllabus Design",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  },
+  {
+    name: "Member Name",
+    role: "Workshop Facilitation",
+    bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+  },
 ];
 
 const PAST_AND_CONTRIBUTORS = [
