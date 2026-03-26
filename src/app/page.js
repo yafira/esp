@@ -28,7 +28,18 @@ export default function HomePage() {
         <div className="hero3-paper">
           {/* DOODLE DECORATIONS */}
           <DoodleSquiggle className="doodle doodle--squiggle-b" />
-
+          <img
+            src="/sticky.png"
+            alt=""
+            aria-hidden="true"
+            className="doodle doodle--sticky"
+          />
+          <img
+            src="/paperclip.png"
+            alt=""
+            aria-hidden="true"
+            className="doodle doodle--paperclip"
+          />
           <img
             src="/paper.png"
             alt=""

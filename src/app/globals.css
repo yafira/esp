@@ -15,6 +15,7 @@ body {
 :root {
   --font-site: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --ink: #1e1b18;
   --paper: #f5f0e8;
@@ -1898,4 +1899,73 @@ h6,
     width: 160px;
     height: 160px;
   }
+}
+
+/* IBM PLEX MONO — accent font for labels and metadata */
+.meta3-k,
+.tag-group-label,
+.db-sidebar-title,
+.db-keyword-panel-title,
+.db-kv-key,
+.team-group-label,
+.team-past-title,
+.footer-label,
+.hero3-eyebrow,
+.db-count,
+.pill3,
+.pill3-muted {
+  font-family: var(--font-mono);
+}
+
+.doodle--sticky {
+  position: absolute;
+  width: 130px;
+  top: 52%;
+  right: 32px;
+  transform: rotate(6deg);
+  animation: doodle-float 6.5s ease-in-out infinite 1s;
+  --r: 6deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .doodle--sticky {
+    width: 100px;
+    left: -10px;
+    bottom: 40px;
+  }
+}
+
+.doodle--paperclip {
+  position: fixed;
+  width: 100px;
+  bottom: 40px;
+  right: 40px;
+  transform: rotate(18deg);
+  animation: doodle-float 5s ease-in-out infinite 0.3s;
+  --r: 18deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 720px) {
+  .doodle--paperclip {
+    display: none;
+  }
+}
+
+/* RESEARCH SERVICE PAGE */
+.research-service-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.research-service-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+  animation: doodle-float 6s ease-in-out infinite;
 }

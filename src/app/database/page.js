@@ -173,7 +173,12 @@ export default function DatabasePage() {
           onToggle={(t) => setCats((f) => toggleItem(f, t))}
         />
 
-        <a href="/contribute" className="db-suggest-btn">
+        <a
+          href="https://forms.gle/YOUR_FORM_ID"
+          target="_blank"
+          rel="noreferrer"
+          className="db-suggest-btn"
+        >
           + Suggest a resource
         </a>
       </aside>

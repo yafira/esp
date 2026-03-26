@@ -1,15 +1,27 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function GuidePage() {
   return (
     <main className="page container">
       <div className="page-header">
-        <h1>Syllabus Guide</h1>
-        <p>
-          A template and reference to help build an equity-aligned syllabus.
-        </p>
+        <div className="research-service-title-row">
+          <Image
+            src="/guide.png"
+            alt=""
+            aria-hidden="true"
+            width={80}
+            height={80}
+            className="research-service-icon"
+          />
+          <div>
+            <h1>Syllabus Guide</h1>
+            <p>
+              A template and reference to help build an equity-aligned syllabus.
+            </p>
+          </div>
+        </div>
       </div>
-
       <div className="page-cards">
         <div className="panel panel-cream">
           <h2>5 principles for inclusive teaching</h2>
@@ -18,7 +30,6 @@ export default function GuidePage() {
             View principles
           </Link>
         </div>
-
         <div className="panel panel-lav">
           <h2>Checklist</h2>
           <p>A quick checklist to review your syllabus structure + tone.</p>
