@@ -1689,6 +1689,7 @@ h6,
   left: 28px;
   transform: rotate(-3deg);
   animation: doodle-float 8s ease-in-out infinite 0.8s;
+  z-index: 2;
 }
 
 /* wavy underline */
@@ -1918,15 +1919,7 @@ h6,
 }
 
 .doodle--sticky {
-  position: absolute;
-  width: 130px;
-  top: 52%;
-  right: 32px;
-  transform: rotate(6deg);
-  animation: doodle-float 6.5s ease-in-out infinite 1s;
-  --r: 6deg;
-  pointer-events: none;
-  z-index: 0;
+  display: none;
 }
 
 @media (max-width: 720px) {
@@ -1939,12 +1932,12 @@ h6,
 
 .doodle--paperclip {
   position: fixed;
-  width: 100px;
+  width: 80px;
   bottom: 40px;
-  right: 40px;
-  transform: rotate(18deg);
+  right: 20px;
+  transform: rotate(15deg);
   animation: doodle-float 5s ease-in-out infinite 0.3s;
-  --r: 18deg;
+  --r: 15deg;
   pointer-events: none;
   z-index: 0;
 }
@@ -1968,4 +1961,48 @@ h6,
   object-fit: contain;
   flex-shrink: 0;
   animation: doodle-float 6s ease-in-out infinite;
+}
+
+.doodle--scribble {
+  position: fixed;
+  width: 320px;
+  top: 30%;
+  left: -80px;
+  transform: rotate(-50deg);
+  animation: doodle-float 7s ease-in-out infinite 0.6s;
+  --r: -50deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.doodle--flower {
+  position: fixed;
+  width: 150px;
+  bottom: 60px;
+  left: 10px;
+  transform: rotate(-10deg);
+  animation: doodle-float 6s ease-in-out infinite 1.2s;
+  --r: -10deg;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.panel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-title-row h2 {
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .doodle--scribble {
+    display: none;
+  }
+  .doodle--flower {
+    display: none;
+  }
 }

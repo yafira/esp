@@ -29,16 +29,16 @@ export default function HomePage() {
           {/* DOODLE DECORATIONS */}
           <DoodleSquiggle className="doodle doodle--squiggle-b" />
           <img
-            src="/sticky.png"
+            src="/scribble.png"
             alt=""
             aria-hidden="true"
-            className="doodle doodle--sticky"
+            className="doodle doodle--scribble"
           />
           <img
-            src="/paperclip.png"
+            src="/doodle.png"
             alt=""
             aria-hidden="true"
-            className="doodle doodle--paperclip"
+            className="doodle doodle--flower"
           />
           <img
             src="/paper.png"

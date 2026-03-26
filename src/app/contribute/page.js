@@ -23,11 +23,17 @@ export default function ContributePage() {
         <h2>Suggest a resource</h2>
         <p>
           Add a link, creator info, keywords, and any context you think is
-          helpful.
+          helpful. Submissions are reviewed by our team before being added to
+          the database.
         </p>
-        <p className="muted">
-          next step: wiring this to a Google Form for resource submissions.
-        </p>
+        <a
+          href="https://forms.gle/gmWGFsHdtZoXxxR8A"
+          target="_blank"
+          rel="noreferrer"
+          className="button button-ink"
+        >
+          Submit a resource ↗
+        </a>
       </div>
     </main>
   );
