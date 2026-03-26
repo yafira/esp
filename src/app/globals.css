@@ -1689,7 +1689,7 @@ h6,
   left: 28px;
   transform: rotate(-3deg);
   animation: doodle-float 8s ease-in-out infinite 0.8s;
-  z-index: 2;
+  z-index: 0;
 }
 
 /* wavy underline */
@@ -2013,4 +2013,98 @@ h6,
   font-weight: 700;
   opacity: 0.35;
   font-family: var(--font-mono);
+}
+
+.panel-lav {
+  background: var(--lavender);
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+  padding: 0 4px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-blob {
+  position: relative;
+  padding: 28px 28px 36px;
+  border-radius: 22px;
+  border: 3px solid rgba(30, 27, 24, 0.9);
+  box-shadow: 5px 5px 0 rgba(30, 27, 24, 0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* speech bubble tail */
+.testimonial-blob::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 36px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 22px solid currentColor;
+  filter: drop-shadow(2px 3px 0 rgba(30, 27, 24, 0.9));
+}
+
+.testimonial-blob--lavender::after {
+  color: rgba(184, 200, 240, 0.85);
+}
+.testimonial-blob--pink::after {
+  color: rgba(249, 195, 150, 0.85);
+}
+
+.testimonial-blob--lavender {
+  background: rgba(184, 200, 240, 0.85);
+}
+.testimonial-blob--pink {
+  background: rgba(249, 195, 150, 0.85);
+}
+
+.testimonial-quote {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.65;
+  color: rgba(30, 27, 24, 0.88);
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-name {
+  font-size: 13px;
+  font-weight: 950;
+  font-family: var(--font-display);
+  color: rgba(30, 27, 24, 0.9);
+}
+
+.testimonial-role {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  opacity: 0.55;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 720px) {
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .testimonial-blob {
+    border-radius: 24px;
+  }
 }

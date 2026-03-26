@@ -27,7 +27,6 @@ export default function HomePage() {
       <section className="hero3" aria-labelledby="hero-title">
         <div className="hero3-paper">
           {/* DOODLE DECORATIONS */}
-          <DoodleSquiggle className="doodle doodle--squiggle-b" />
           <img
             src="/scribble.png"
             alt=""
@@ -161,6 +160,46 @@ export default function HomePage() {
                 request →
               </div>
             </Link>
+          </div>
+
+          {/* TESTIMONIALS */}
+          <div className="testimonials">
+            <div className="testimonial-blob testimonial-blob--lavender">
+              <p className="testimonial-quote">
+                &ldquo;Working with Divya was a great experience — the syllabus
+                for the class was one which had undergone many iterations over
+                the years, with several faculty adding to it, so it was nice to
+                have the opportunity to review it with fresh eyes, and
+                especially through the lens of equity and inclusion. I came away
+                with a few new references to add to the course materials, and
+                overall appreciated talking through the underlying assumptions
+                of the course.&rdquo;
+              </p>
+              <div className="testimonial-author">
+                <span className="testimonial-name">Sarah Rothberg</span>
+                <span className="testimonial-role">
+                  Assistant Arts Professor
+                </span>
+              </div>
+            </div>
+            <div className="testimonial-blob testimonial-blob--pink">
+              <p className="testimonial-quote">
+                &ldquo;Designing a syllabus can be a lonely process. However, it
+                can be different with ESP! I worked with a student researcher to
+                find more example projects and readings by underrepresented
+                groups to include in my syllabus. On top of practical help from
+                the student researcher, it was a good opportunity for me to be
+                more intentional and conscious about including diverse voices
+                and role models in my course. More than others, I felt supported
+                throughout the process!&rdquo;
+              </p>
+              <div className="testimonial-author">
+                <span className="testimonial-name">Yeseul Song</span>
+                <span className="testimonial-role">
+                  Assistant Arts Professor
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

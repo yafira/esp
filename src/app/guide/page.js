@@ -30,7 +30,7 @@ export default function GuidePage() {
             View principles
           </Link>
         </div>
-        <div className="panel panel-lav">
+        <div className="panel panel-cream">
           <div className="panel-title-row">
             <Image
               src="/check.png"
@@ -44,6 +44,36 @@ export default function GuidePage() {
           <p>A quick checklist to review your syllabus structure + tone.</p>
           <Link className="button button-ink" href="/guide#checklist">
             View checklist
+          </Link>
+        </div>
+        <div className="panel panel-cream">
+          <h2>Equity Language Bank</h2>
+          <p>
+            Copy-paste ready statements for accessibility, late work, AI policy,
+            pronouns, and more.
+          </p>
+          <Link className="button button-ink" href="/guide#language">
+            Browse language
+          </Link>
+        </div>
+        <div className="panel panel-cream">
+          <h2>Syllabus Template</h2>
+          <p>
+            A starter template with equity-aligned structure and example
+            language you can adapt.
+          </p>
+          <Link className="button button-ink" href="/guide#template">
+            View template
+          </Link>
+        </div>
+        <div className="panel panel-cream">
+          <h2>Land Acknowledgment Guide</h2>
+          <p>
+            How to write a land acknowledgment that is meaningful, not
+            performative.
+          </p>
+          <Link className="button button-ink" href="/guide#land">
+            Read the guide
           </Link>
         </div>
       </div>
