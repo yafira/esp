@@ -499,12 +499,12 @@ h6,
 }
 
 .cta3-primary {
-  background: #a8d5b5;
-  color: rgba(30, 27, 24, 0.92);
+  background: #6aab8e;
+  color: #fff;
 }
 .cta3-ghost {
-  background: var(--pink);
-  color: rgba(30, 27, 24, 0.92);
+  background: #d966a0;
+  color: #fff;
 }
 
 /* meta strip */
@@ -616,6 +616,19 @@ h6,
   font-weight: 950;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+.pill3-guide {
+  background: var(--lavender);
+  border-color: rgba(23, 22, 26, 0.85);
+}
+.pill3-database {
+  background: var(--pink);
+  border-color: rgba(23, 22, 26, 0.85);
+}
+.pill3-service {
+  background: var(--blue);
+  border-color: rgba(23, 22, 26, 0.85);
 }
 
 .pill3-muted {
@@ -1707,13 +1720,6 @@ h6,
   .doodle {
     animation: none !important;
   }
-}
-
-.doodle--sparkstar-tr {
-  width: 72px;
-  top: 20px;
-  right: 36px;
-  animation: doodle-float 6s ease-in-out infinite;
 }
 
 .doodle--star-img {

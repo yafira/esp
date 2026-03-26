@@ -26,6 +26,7 @@ export default function HomePage() {
     <main className="home3">
       <section className="hero3" aria-labelledby="hero-title">
         <div className="hero3-paper">
+          {/* DOODLE DECORATIONS */}
           <DoodleSquiggle className="doodle doodle--squiggle-b" />
 
           <img
@@ -105,7 +106,7 @@ export default function HomePage() {
           <div className="hero3-deck">
             <Link className="card3" href="/guide">
               <div className="card3-top">
-                <span className="pill3">guide</span>
+                <span className="pill3 pill3-guide">guide</span>
                 <span className="pill3 pill3-muted">
                   frameworks + templates
                 </span>
@@ -122,7 +123,7 @@ export default function HomePage() {
 
             <Link className="card3" href="/database">
               <div className="card3-top">
-                <span className="pill3">database</span>
+                <span className="pill3 pill3-database">database</span>
                 <span className="pill3 pill3-muted">search + filter</span>
               </div>
               <h2>Research Database</h2>
@@ -137,7 +138,7 @@ export default function HomePage() {
 
             <Link className="card3" href="/research-service">
               <div className="card3-top">
-                <span className="pill3">service</span>
+                <span className="pill3 pill3-service">service</span>
                 <span className="pill3 pill3-muted">request support</span>
               </div>
               <h2>Research Service</h2>
