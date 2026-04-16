@@ -27,7 +27,7 @@ const TEAM = [
     role: "Research Specialist",
     bio: "Audrey Oh (Korean, b. 1996) is a new media artist who repurposes technology as a vessel for ritual, tradition, and collective meaning-making. With a background in race and ethnic studies and visual arts, her work draws on performance, cultural storytelling, and non-traditional research methodologies to explore the gaps where science and technology leave a vacuum. She is currently a second-year student in NYU's Interactive Telecommunications Program (ITP).",
     avatar: "/assets/audrey1.png",
-    photo: "/assets/audrey2.png",
+    photo: null,
   },
   {
     name: "Sophia Collander",
@@ -72,27 +72,33 @@ const PAST_AND_CONTRIBUTORS = [
 ];
 
 function MemberCard({ member }) {
-  const hasPhoto = member.photo && member.avatar;
+  const hasAvatar = !!member.avatar;
+  const hasBack = !!(member.photo && member.avatar);
 
   return (
-    <div className="team-card">
-      <div className={`team-card-inner ${!hasPhoto ? "no-flip" : ""}`}>
+    // fix: article with aria-label gives each card an accessible name
+    <article
+      className="team-card"
+      aria-label={`${member.name}${member.role ? `, ${member.role}` : ""}`}
+    >
+      <div className={`team-card-inner ${!hasBack ? "no-flip" : ""}`}>
         {/* front: avatar */}
         <div className="team-card-front">
           <div className="team-avatar">
-            {hasPhoto ? (
+            {hasAvatar ? (
               <img
                 src={member.avatar}
-                alt={`${member.name} illustrated avatar`}
+                // fix: decorative avatar, name already in card-info below
+                alt=""
                 className="team-avatar-img"
               />
             ) : (
-              <div className="team-avatar-placeholder">
+              // fix: aria-hidden since name is in card-info
+              <div className="team-avatar-placeholder" aria-hidden="true">
                 <svg
                   viewBox="0 0 48 48"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
                 >
                   <circle cx="24" cy="18" r="9" fill="rgba(30,27,24,0.18)" />
                   <path
@@ -104,64 +110,94 @@ function MemberCard({ member }) {
             )}
           </div>
           <div className="team-card-info">
-            <div className="team-card-name">{member.name}</div>
-            {member.role && <div className="team-card-role">{member.role}</div>}
+            {/* fix: use h3 so cards are part of the heading hierarchy */}
+            <h3 className="team-card-name">{member.name}</h3>
+            {member.role && <p className="team-card-role">{member.role}</p>}
           </div>
         </div>
 
         {/* back: real photo + bio */}
-        {hasPhoto && (
-          <div className="team-card-back">
+        {hasBack && (
+          <div
+            className="team-card-back"
+            // fix: screen readers can still access back content
+            aria-hidden="false"
+          >
             <img
               src={member.photo}
-              alt={`${member.name}`}
+              // fix: meaningful alt for the real photo
+              alt={`Photo of ${member.name}`}
               className="team-photo-img"
             />
             <div className="team-card-back-info">
-              <div className="team-card-name">{member.name}</div>
+              <p className="team-card-name" aria-hidden="true">
+                {member.name}
+              </p>
               {member.role && (
-                <div className="team-card-role">{member.role}</div>
+                <p className="team-card-role" aria-hidden="true">
+                  {member.role}
+                </p>
               )}
               {member.bio && <p className="team-card-bio">{member.bio}</p>}
             </div>
           </div>
         )}
       </div>
-    </div>
+    </article>
   );
 }
 
 export default function TeamPage() {
   return (
-    <main className="page">
-      <div className="container">
-        <div className="page-header">
-          <h1>Meet the Team</h1>
-          <p>
-            Researchers and collaborators supporting equity-aligned teaching.
-          </p>
-        </div>
+    <>
+      {/* fix: skip nav link for keyboard users */}
+      <a href="#main-content" className="skip-nav">
+        Skip to main content
+      </a>
 
-        <div className="team-grid">
-          {TEAM.map((m, i) => (
-            <MemberCard key={i} member={m} />
-          ))}
-        </div>
+      <main className="page" id="main-content">
+        <div className="container">
+          <div className="page-header">
+            <h1>Meet the Team</h1>
+            <p>
+              Researchers and collaborators supporting equity-aligned teaching.
+            </p>
+          </div>
 
-        <section className="team-past">
-          <h2 className="team-past-title">Past Members & Contributors</h2>
-          <p className="team-past-list">
-            {PAST_AND_CONTRIBUTORS.map((name, i) => (
-              <span key={i}>
-                {name}
-                {i < PAST_AND_CONTRIBUTORS.length - 1 && (
-                  <span className="team-dot"> · </span>
-                )}
-              </span>
+          {/* fix: role="list" pairs with article children for screen readers */}
+          <div className="team-grid" role="list" aria-label="Team members">
+            {TEAM.map((m, i) => (
+              // fix: role="listitem" on each card
+              <div role="listitem" key={i}>
+                <MemberCard member={m} />
+              </div>
             ))}
-          </p>
-        </section>
-      </div>
-    </main>
+          </div>
+
+          <section className="team-past" aria-labelledby="past-members-title">
+            <h2 className="team-past-title" id="past-members-title">
+              Past Members &amp; Contributors
+            </h2>
+            {/* fix: use <ul> instead of <p> for a list of names */}
+            <ul
+              className="team-past-list"
+              aria-label="Past members and contributors"
+            >
+              {PAST_AND_CONTRIBUTORS.map((name, i) => (
+                <li key={i} style={{ display: "inline" }}>
+                  {name}
+                  {i < PAST_AND_CONTRIBUTORS.length - 1 && (
+                    <span className="team-dot" aria-hidden="true">
+                      {" "}
+                      ·{" "}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </main>
+    </>
   );
 }
