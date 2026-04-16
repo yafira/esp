@@ -76,7 +76,6 @@ function MemberCard({ member }) {
   const hasBack = !!(member.photo && member.avatar);
 
   return (
-    // fix: article with aria-label gives each card an accessible name
     <article
       className="team-card"
       aria-label={`${member.name}${member.role ? `, ${member.role}` : ""}`}
@@ -86,14 +85,8 @@ function MemberCard({ member }) {
         <div className="team-card-front">
           <div className="team-avatar">
             {hasAvatar ? (
-              <img
-                src={member.avatar}
-                // fix: decorative avatar, name already in card-info below
-                alt=""
-                className="team-avatar-img"
-              />
+              <img src={member.avatar} alt="" className="team-avatar-img" />
             ) : (
-              // fix: aria-hidden since name is in card-info
               <div className="team-avatar-placeholder" aria-hidden="true">
                 <svg
                   viewBox="0 0 48 48"
@@ -110,22 +103,15 @@ function MemberCard({ member }) {
             )}
           </div>
           <div className="team-card-info">
-            {/* fix: use h3 so cards are part of the heading hierarchy */}
             <h3 className="team-card-name">{member.name}</h3>
             {member.role && <p className="team-card-role">{member.role}</p>}
           </div>
         </div>
 
-        {/* back: real photo + bio */}
         {hasBack && (
-          <div
-            className="team-card-back"
-            // fix: screen readers can still access back content
-            aria-hidden="false"
-          >
+          <div className="team-card-back" aria-hidden="false">
             <img
               src={member.photo}
-              // fix: meaningful alt for the real photo
               alt={`Photo of ${member.name}`}
               className="team-photo-img"
             />
@@ -150,7 +136,6 @@ function MemberCard({ member }) {
 export default function TeamPage() {
   return (
     <>
-      {/* fix: skip nav link for keyboard users */}
       <a href="#main-content" className="skip-nav">
         Skip to main content
       </a>
@@ -158,16 +143,22 @@ export default function TeamPage() {
       <main className="page" id="main-content">
         <div className="container">
           <div className="page-header">
-            <h1>Meet the Team</h1>
+            <div className="research-service-title-row">
+              <img
+                src="/teamwork.png"
+                alt=""
+                aria-hidden="true"
+                className="research-service-icon"
+              />
+              <h1>Meet the Team</h1>
+            </div>
             <p>
               Researchers and collaborators supporting equity-aligned teaching.
             </p>
           </div>
 
-          {/* fix: role="list" pairs with article children for screen readers */}
           <div className="team-grid" role="list" aria-label="Team members">
             {TEAM.map((m, i) => (
-              // fix: role="listitem" on each card
               <div role="listitem" key={i}>
                 <MemberCard member={m} />
               </div>
@@ -178,7 +169,6 @@ export default function TeamPage() {
             <h2 className="team-past-title" id="past-members-title">
               Past Members &amp; Contributors
             </h2>
-            {/* fix: use <ul> instead of <p> for a list of names */}
             <ul
               className="team-past-list"
               aria-label="Past members and contributors"
