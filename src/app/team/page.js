@@ -30,7 +30,7 @@ const TEAM = [
     photo: null,
   },
   {
-    name: "Sophia Collander",
+    name: "Sophia Collender",
     role: "Research Specialist",
     bio: "Sophia Collender is a New York-based artist and researcher focused on investigating the systems that underpin daily life. Through microscopic and time-bending film, web development, and experiments in human computer interaction, Sophia uses materiality as a tool to explore the various scales of activity at work in our world.",
     avatar: "/assets/sophia1.png",
@@ -136,10 +136,6 @@ function MemberCard({ member }) {
 export default function TeamPage() {
   return (
     <>
-      <a href="#main-content" className="skip-nav">
-        Skip to main content
-      </a>
-
       <main className="page" id="main-content">
         <div className="container">
           <div className="page-header">
