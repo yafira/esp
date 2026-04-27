@@ -27,7 +27,7 @@ const TEAM = [
     role: "Research Specialist",
     bio: "Audrey Oh (Korean, b. 1996) is a new media artist who repurposes technology as a vessel for ritual, tradition, and collective meaning-making. With a background in race and ethnic studies and visual arts, her work draws on performance, cultural storytelling, and non-traditional research methodologies to explore the gaps where science and technology leave a vacuum. She is currently a second-year student in NYU's Interactive Telecommunications Program (ITP).",
     avatar: "/assets/audrey1.png",
-    photo: null,
+    photo: "/assets/audrey2.png",
   },
   {
     name: "Sophia Collender",
@@ -39,9 +39,9 @@ const TEAM = [
   {
     name: "Yafira Martinez",
     role: "Lead Web Developer",
-    bio: null,
+    bio: "Yafira Martinez (electrocute ✿) is a computer programmer, designer, and maker building at the intersection of software, hardware, and design. She creates web, UI, and physical interfaces that blend code, craft, and aesthetics into human-centered technologies — from e-textiles and soft circuits to tools for everyday makers. Currently an NYU ITP graduate student, her practice spans interaction design, physical computing, fabrication, and creative experimentation, with a particular interest in calm and soft computing. She is passionate about open source and deeply committed to building tools that make making more accessible.",
     avatar: "/assets/yafira1.png",
-    photo: null,
+    photo: "/assets/yafira2.jpg",
   },
   {
     name: "Christina Tran",
@@ -65,6 +65,7 @@ const PAST_AND_CONTRIBUTORS = [
   "Divya Mehra",
   "Sophia Edwards",
   "Jenna Han",
+  "Melika Panbehchi",
   "Spencer Ratanavanh",
   "Polina Kolesnikova",
 ];
