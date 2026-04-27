@@ -60,15 +60,13 @@ const TEAM = [
 ];
 
 const PAST_AND_CONTRIBUTORS = [
-  "Past Member Name",
-  "Past Member Name",
-  "Past Member Name",
-  "Past Member Name",
-  "Contributor Name",
-  "Contributor Name",
-  "Contributor Name",
-  "Contributor Name",
-  "Past Member Name",
+  "Rashida Kamal",
+  "Chaski No",
+  "Divya Mehra",
+  "Sophia Edwards",
+  "Jenna Han",
+  "Spencer Ratanavanh",
+  "Polina Kolesnikova",
 ];
 
 function MemberCard({ member }) {
