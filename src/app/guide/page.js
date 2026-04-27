@@ -36,16 +36,17 @@ export default function GuidePage() {
           </a>
         </div>
         <div className="panel panel-cream">
-          <div className="panel-title-row">
-            <Image
-              src="/check.png"
-              alt=""
-              aria-hidden="true"
-              width={36}
-              height={36}
-            />
-            <h2>Sample Statements</h2>
-          </div>
+          <h2>Checklist</h2>
+          <p>
+            A quick checklist to review your syllabus structure + tone before
+            the semester starts.
+          </p>
+          <a className="button button-ink" href="#checklist">
+            View checklist
+          </a>
+        </div>
+        <div className="panel panel-cream">
+          <h2>Sample Statements</h2>
           <p>
             Ready-to-use language for participation, extensions, attendance, and
             more.
@@ -157,6 +158,34 @@ export default function GuidePage() {
                   </ul>
                 </div>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* CHECKLIST */}
+        <section id="checklist" className="guide-section">
+          <h2 className="guide-section-title">Checklist</h2>
+          <p className="guide-section-intro">
+            A quick review of your syllabus structure and tone before the
+            semester starts.
+          </p>
+          <div className="guide-checklist">
+            {[
+              "Does your syllabus include an accessibility statement?",
+              "Is your late work policy written in plain, non-punitive language?",
+              "Have you listed support resources (counseling, disability services, writing center)?",
+              "Is your reading list diverse in authorship — gender, race, geography?",
+              "Have you named the tools and platforms students will need and their costs?",
+              "Does your grading rubric explain criteria clearly?",
+              "Is there a land acknowledgment or statement of values?",
+              "Have you included your pronouns and invited students to share theirs?",
+              "Is there a clear communication policy (email response time, office hours)?",
+              "Does the course description use welcoming, inclusive language?",
+            ].map((item, i) => (
+              <label key={i} className="guide-checklist-item">
+                <input type="checkbox" className="guide-checklist-check" />
+                <span>{item}</span>
+              </label>
             ))}
           </div>
         </section>
