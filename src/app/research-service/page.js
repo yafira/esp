@@ -14,7 +14,9 @@ export default function ResearchServicePage() {
             className="research-service-icon"
           />
           <div>
-            <h1>Research Service</h1>
+            <a href="mailto:esp@itp.nyu.edu" className="button button-mint">
+              Request research service ↗
+            </a>
             <p>
               Get help expanding readings and identifying equity gaps in course
               material.
@@ -24,7 +26,9 @@ export default function ResearchServicePage() {
       </div>
       <div className="page-cards">
         <div className="panel panel-cream">
-          <h2>Research Assistance</h2>
+          <a href="mailto:esp@itp.nyu.edu" className="button button-ink">
+            Learn about the workshop ↗
+          </a>
           <p>
             Share your syllabus and our team will recommend resources aligned
             with your goals.
