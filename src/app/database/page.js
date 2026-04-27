@@ -173,6 +173,46 @@ export default function DatabasePage() {
           onToggle={(t) => setCats((f) => toggleItem(f, t))}
         />
 
+        {/* KEYWORDS — moved into sidebar */}
+        <div className="db-keyword-panel" aria-label="Filter by keyword">
+          <div className="db-keyword-panel-header">
+            <span className="db-keyword-panel-title">Keywords</span>
+            {activeKeywords.length > 0 && (
+              <button
+                type="button"
+                className="db-keyword-clear"
+                onClick={clearKeywords}
+              >
+                Clear
+              </button>
+            )}
+          </div>
+          <div className="db-keyword-cloud">
+            {allKeywords.length === 0 ? (
+              <span className="db-keyword-empty">No keywords</span>
+            ) : (
+              allKeywords.map((kw) => {
+                const isActive = activeKeywords
+                  .map((k) => k.toLowerCase())
+                  .includes(kw.toLowerCase());
+                const isDimmed = activeKeywords.length > 0 && !isActive;
+                return (
+                  <button
+                    key={kw}
+                    type="button"
+                    className={`kw-tag ${kwColor(kw)}${isActive ? " kw-active" : ""}${isDimmed ? " kw-dimmed" : ""}`}
+                    onClick={() => setActiveKw((k) => toggleItem(k, kw))}
+                    aria-pressed={isActive}
+                    title={kw}
+                  >
+                    {kw}
+                  </button>
+                );
+              })
+            )}
+          </div>
+        </div>
+
         <a
           href="https://forms.gle/gmWGFsHdtZoXxxR8A"
           target="_blank"
@@ -295,46 +335,6 @@ export default function DatabasePage() {
           </div>
         )}
       </div>
-
-      {/* RIGHT: KEYWORD PANEL */}
-      <aside className="db-keyword-panel" aria-label="Filter by keyword">
-        <div className="db-keyword-panel-header">
-          <span className="db-keyword-panel-title">Keywords</span>
-          {activeKeywords.length > 0 && (
-            <button
-              type="button"
-              className="db-keyword-clear"
-              onClick={clearKeywords}
-            >
-              Clear
-            </button>
-          )}
-        </div>
-        <div className="db-keyword-cloud">
-          {allKeywords.length === 0 ? (
-            <span className="db-keyword-empty">No keywords</span>
-          ) : (
-            allKeywords.map((kw) => {
-              const isActive = activeKeywords
-                .map((k) => k.toLowerCase())
-                .includes(kw.toLowerCase());
-              const isDimmed = activeKeywords.length > 0 && !isActive;
-              return (
-                <button
-                  key={kw}
-                  type="button"
-                  className={`kw-tag ${kwColor(kw)}${isActive ? " kw-active" : ""}${isDimmed ? " kw-dimmed" : ""}`}
-                  onClick={() => setActiveKw((k) => toggleItem(k, kw))}
-                  aria-pressed={isActive}
-                  title={kw}
-                >
-                  {kw}
-                </button>
-              );
-            })
-          )}
-        </div>
-      </aside>
     </main>
   );
 }
