@@ -26,6 +26,37 @@ export default function Footer() {
           <Link href="/contribute">Contribute</Link>
         </div>
         <div className="footer-col">
+          <div className="footer-label">NYU Diversity Resources</div>
+          <a
+            href="https://tisch.nyu.edu/diversity"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tisch Office of Diversity ↗
+          </a>
+          <a
+            href="https://tisch.nyu.edu/diversity/IDBEA_Commitments"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Tisch Commitments to Diversity ↗
+          </a>
+          <a
+            href="https://www.nyu.edu/life/global-inclusion-and-diversity.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            NYU Global Inclusion and Diversity ↗
+          </a>
+          <a
+            href="https://www.nyu.edu/about/policies-guidelines-compliance/equal-opportunity/bias-response/report-a-bias-incident.html"
+            target="_blank"
+            rel="noreferrer"
+          >
+            NYU Bias Response Line ↗
+          </a>
+        </div>
+        <div className="footer-col">
           <div className="footer-label">Contact</div>
           <a href="mailto:esp@nyu.edu">esp@nyu.edu</a>
           <div className="footer-label" style={{ marginTop: "20px" }}>
