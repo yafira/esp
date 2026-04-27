@@ -35,21 +35,21 @@ export default function Footer() {
             Tisch Office of Diversity ↗
           </a>
           <a
-            href="https://tisch.nyu.edu/diversity/IDBEA_Commitments"
+            href="https://tisch.nyu.edu/community-engagement/Who_We_Are/Mission_Values/Inclusion_Timeline.html"
             target="_blank"
             rel="noreferrer"
           >
             Tisch Commitments to Diversity ↗
           </a>
           <a
-            href="https://www.nyu.edu/life/global-inclusion-and-diversity.html"
+            href="https://wp.nyu.edu/disabilityculture/global-inclusion-diversity-and-strategic-innovation-gidi/"
             target="_blank"
             rel="noreferrer"
           >
             NYU Global Inclusion and Diversity ↗
           </a>
           <a
-            href="https://www.nyu.edu/about/policies-guidelines-compliance/equal-opportunity/bias-response/report-a-bias-incident.html"
+            href="https://www.nyu.edu/about/policies-guidelines-compliance/equal-opportunity/bias-response.html?challenge=d06e90d7-4d8f-4b88-9d8c-10b73beb60f1"
             target="_blank"
             rel="noreferrer"
           >
