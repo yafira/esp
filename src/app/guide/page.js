@@ -16,7 +16,10 @@ export default function GuidePage() {
           <div>
             <h1>Syllabus Guide</h1>
             <p>
-              A template and reference to help build an equity-aligned syllabus.
+              Following the 5 Principles for Inclusive Teaching outlined by the
+              Guide for Inclusive Teaching at Columbia, the ESP research team
+              compiled these tips and suggestions for crafting inclusive and
+              thoughtful syllabi.
             </p>
           </div>
         </div>
@@ -24,8 +27,10 @@ export default function GuidePage() {
 
       <div className="page-cards">
         <div className="panel panel-cream">
-          <h2>5 principles for inclusive teaching</h2>
-          <p>Short, actionable principles you can apply immediately.</p>
+          <h2>5 Principles for Inclusive Teaching</h2>
+          <p>
+            Actionable principles and strategies for crafting inclusive syllabi.
+          </p>
           <a className="button button-ink" href="#principles">
             View principles
           </a>
@@ -39,11 +44,24 @@ export default function GuidePage() {
               width={36}
               height={36}
             />
-            <h2>Checklist</h2>
+            <h2>Sample Statements</h2>
           </div>
-          <p>A quick checklist to review your syllabus structure + tone.</p>
-          <a className="button button-ink" href="#checklist">
-            View checklist
+          <p>
+            Ready-to-use language for participation, extensions, attendance, and
+            more.
+          </p>
+          <a className="button button-ink" href="#statements">
+            View statements
+          </a>
+        </div>
+        <div className="panel panel-cream">
+          <h2>Required Syllabus Statements</h2>
+          <p>
+            NYU/Tisch required statements on accessibility, wellness, Title IX,
+            and more.
+          </p>
+          <a className="button button-ink" href="#required">
+            View required
           </a>
         </div>
         <div className="panel panel-cream">
@@ -54,16 +72,6 @@ export default function GuidePage() {
           </p>
           <a className="button button-ink" href="#language">
             Browse language
-          </a>
-        </div>
-        <div className="panel panel-cream">
-          <h2>Syllabus Template</h2>
-          <p>
-            A starter template with equity-aligned structure and example
-            language you can adapt.
-          </p>
-          <a className="button button-ink" href="#template">
-            View template
           </a>
         </div>
         <div className="panel panel-cream">
@@ -79,91 +87,183 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-sections">
+        {/* 5 PRINCIPLES */}
         <section id="principles" className="guide-section">
           <h2 className="guide-section-title">
             5 Principles for Inclusive Teaching
           </h2>
           <p className="guide-section-intro">
-            Short, actionable principles you can apply immediately to make your
-            syllabus more welcoming and equitable.
+            Compiled by Blair Simmons, Mimi Yin, Chaski No, and Sophia Edwards
+            of the ESP research team, based on the Guide for Inclusive Teaching
+            at Columbia.
           </p>
           <div className="guide-principles">
             {[
               {
                 n: "01",
-                title: "Center access from the start",
-                body: "Build accessibility into your syllabus structure rather than treating it as an accommodation. Include clear information about materials, tools, and support resources on day one.",
+                title:
+                  "Establish and support a class climate that fosters belonging for all students",
+                body: [
+                  "Use welcoming language to build teacher-student rapport — create invitations, not commands.",
+                  "Create open channels to facilitate students' communication regarding their needs to maximize learning potential.",
+                  "Present participation as being present in class (in whatever forms feel comfortable to students).",
+                ],
               },
               {
                 n: "02",
-                title: "Name your assumptions",
-                body: "Every course embeds assumptions about prior knowledge, identity, and belonging. Making these explicit helps students understand what is expected and why.",
+                title: "Set explicit student expectations",
+                body: [
+                  "Set clear expectations as to what kinds of prior knowledge or skills are needed for a student to succeed.",
+                  "Articulate evaluation criteria transparently and specifically.",
+                  "Encourage student agency by providing multiple assessment options.",
+                ],
               },
               {
                 n: "03",
-                title: "Diversify your readings",
-                body: "Review who is represented in your reading list across gender, race, geography, and discipline. Aim for breadth that reflects the actual diversity of your field.",
+                title:
+                  "Select course content that recognizes diversity and acknowledges barriers to inclusion",
+                body: [
+                  "Incorporate course components that provide flexibility for different learning styles and abilities.",
+                  "Provide diverse examples of exemplary work.",
+                ],
               },
               {
                 n: "04",
-                title: "Make policies human",
-                body: "Late work, attendance, and grading policies communicate your values. Write them in plain language and explain the reasoning behind each one.",
+                title: "Design all course elements for accessibility",
+                body: [
+                  "Make course materials easily accessible (not behind paywalls or requiring students to go through multiple hoops).",
+                  "Provide supportive scaffolding by emphasizing process and outlining steps toward achieving syllabus goals.",
+                  "Offer consistent and timely goal-oriented feedback.",
+                ],
               },
               {
                 n: "05",
-                title: "Invite feedback early",
-                body: "Build in structured moments for students to tell you what is and isn't working — a mid-semester check-in or anonymous form can surface issues before they escalate.",
+                title:
+                  "Reflect on one's beliefs about teaching to maximize self-awareness and commitment to inclusion",
+                body: [
+                  "Emphasize the importance of collaboration between teachers and students in creating a healthy learning environment.",
+                  "Acknowledge that students bring different styles and methods of understanding into the classroom.",
+                ],
               },
             ].map(({ n, title, body }) => (
               <div key={n} className="guide-principle-card">
                 <div className="guide-principle-n">{n}</div>
                 <div>
                   <h3 className="guide-principle-title">{title}</h3>
-                  <p className="guide-principle-body">{body}</p>
+                  <ul className="guide-principle-list">
+                    {body.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section id="checklist" className="guide-section">
-          <h2 className="guide-section-title">Checklist</h2>
+        {/* SAMPLE STATEMENTS */}
+        <section id="statements" className="guide-section">
+          <h2 className="guide-section-title">Sample Statements</h2>
           <p className="guide-section-intro">
-            A quick review of your syllabus structure and tone before the
-            semester starts.
-          </p>
-          <div className="guide-checklist">
-            {[
-              "Does your syllabus include an accessibility statement?",
-              "Is your late work policy written in plain, non-punitive language?",
-              "Have you listed support resources (counseling, disability services, writing center)?",
-              "Is your reading list diverse in authorship — gender, race, geography?",
-              "Have you named the tools and platforms students will need and their costs?",
-              "Does your grading rubric explain criteria clearly?",
-              "Is there a land acknowledgment or statement of values?",
-              "Have you included your pronouns and invited students to share theirs?",
-              "Is there a clear communication policy (email response time, office hours)?",
-              "Does the course description use welcoming, inclusive language?",
-            ].map((item, i) => (
-              <label key={i} className="guide-checklist-item">
-                <input type="checkbox" className="guide-checklist-check" />
-                <span>{item}</span>
-              </label>
-            ))}
-          </div>
-        </section>
-
-        <section id="language" className="guide-section">
-          <h2 className="guide-section-title">Equity Language Bank</h2>
-          <p className="guide-section-intro">
-            Copy-paste ready statements you can adapt for your own syllabus.
+            Ready-to-adapt language for common syllabus sections. Copy and
+            modify to fit your course.
           </p>
           <div className="guide-language-grid">
             {[
               {
-                label: "Accessibility",
-                text: "I am committed to making this course accessible to all students. If you have a documented disability or anticipate needing accommodations, please contact the Moses Center for Student Accessibility and reach out to me as early as possible.",
+                label: "Diverse Perspectives & Learning Modes",
+                text: "Your success in this class is important to me. We all learn differently and require different kinds of accommodations. If there are aspects of this course that prevent you from learning or exclude you in any way, I invite you to communicate this with me. Together we'll develop strategies to meet both your needs and the requirements of the course.",
               },
+              {
+                label: "Participation",
+                text: "I am committed to facilitating the fullest possible participation of all my students. Acknowledging that being present is a form of participation in itself, and that engaged listening is not a passive form of participation either, I welcome my students to communicate with me what kinds of engagement are best for them. Examples of participation: asking questions, office hours, emails, group discussion, arriving on time, taking notes, listening to peers, submitting anonymous responses, active listening.",
+              },
+              {
+                label: "Open Office Hours",
+                text: "You all enter this classroom with different sets of skills. I open my office to you as an extension of the classroom. There's no incorrect way to approach office hours, and they can be as formal or informal as you would like. I welcome you to contact me outside of class and office hours — you may email me, call me, or schedule an appointment.",
+              },
+              {
+                label: "Extensions",
+                text: "An assignment extension may be granted upon request. If you request an extension, your grade will not be affected. However, if you do not request an extension, the grading rules above apply.",
+              },
+              {
+                label: "Communication",
+                text: "You must check your email (or other stated class form of communication) for important updates about class.",
+              },
+              {
+                label: "Incompletes",
+                text: "Incomplete grades may only be given to students who have completed more than half of the class assignments. Incomplete grades are given at the discretion of the professor since managing incomplete grades is often additional uncompensated labor for the instructor.",
+              },
+              {
+                label: "Attendance",
+                text: "There are no excused absences and unexcused absences. There are only absences. You can have X amount of absences without your grade being affected. A passing grade requires at least 50% attendance. 2 late arrivals (more than 10 minutes after start time) will count as 1 absence.",
+              },
+            ].map(({ label, text }) => (
+              <div key={label} className="guide-language-card">
+                <div className="guide-language-label">{label}</div>
+                <p className="guide-language-text">{text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* REQUIRED STATEMENTS */}
+        <section id="required" className="guide-section">
+          <h2 className="guide-section-title">Required Syllabus Statements</h2>
+          <p className="guide-section-intro">
+            The following statements are required by NYU/Tisch and should be
+            included in all syllabi.
+          </p>
+          <div className="guide-template">
+            {[
+              {
+                heading: "Academic Integrity",
+                placeholder:
+                  "Plagiarism is presenting someone else's work as though it were your own. Collaboration is highly valued and often necessary to produce great work. Students build their own work on that of other people and giving credit to the creator of the work you are incorporating into your own work is an act of integrity. Plagiarism, on the other hand, is a form of fraud. Proper acknowledgment and correct citation constitute the difference.",
+              },
+              {
+                heading: "Accessibility",
+                placeholder:
+                  "It's crucial for our community to create and uphold learning environments that empower students of all abilities. We are committed to creating an environment that enables open dialogue about the various temporary and long-term needs of students and participants for their academic success. We encourage all students to discuss with faculty and staff possible accommodations that would best support their learning. Students may also contact the Moses Center for Student Accessibility (212-998-4980) for resources and support.",
+              },
+              {
+                heading: "Counseling and Wellness",
+                placeholder:
+                  "Your health and safety are a priority at NYU. Students are encouraged to utilize the resources and support services available to them 24 hours a day, 7 days a week via the NYU Wellness Exchange Hotline at 212-443-9999. Additional support is available over email at wellness.exchange@nyu.edu and within the NYU Wellness Exchange app.",
+              },
+              {
+                heading: "Use of Electronic Devices",
+                placeholder:
+                  "Laptops and other electronic devices are essential tools for learning and interaction in classrooms. However, they can create distractions that hinder students' ability to actively participate and engage. Please be mindful of the ways in which these devices can affect the learning environment.",
+              },
+              {
+                heading: "Title IX",
+                placeholder:
+                  "Tisch School of the Arts is dedicated to providing its students with a learning environment that is rigorous, respectful, supportive and nurturing. Tisch is committed to enforcing University policies prohibiting all forms of sexual misconduct as well as discrimination on the basis of sex and gender. Detailed information regarding these policies and the resources available to students can be found through the NYU Title IX Office.",
+              },
+              {
+                heading: "Statement of Principle",
+                placeholder:
+                  "Teachers and students work together to create a supportive learning environment. The educational experience in the classroom is one that is enhanced by integrating varying perspectives and learning modes brought by students.",
+              },
+            ].map(({ heading, placeholder }) => (
+              <div key={heading} className="guide-template-section">
+                <h3 className="guide-template-heading">{heading}</h3>
+                <p className="guide-template-placeholder">{placeholder}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* EQUITY LANGUAGE BANK */}
+        <section id="language" className="guide-section">
+          <h2 className="guide-section-title">Equity Language Bank</h2>
+          <p className="guide-section-intro">
+            Additional copy-paste ready statements you can adapt for your own
+            syllabus.
+          </p>
+          <div className="guide-language-grid">
+            {[
               {
                 label: "Pronouns",
                 text: "I use [pronouns] and welcome you to share your own pronouns with me at any time. I will do my best to use them consistently and ask that we all extend that courtesy to one another.",
@@ -193,73 +293,7 @@ export default function GuidePage() {
           </div>
         </section>
 
-        <section id="template" className="guide-section">
-          <h2 className="guide-section-title">Syllabus Template</h2>
-          <p className="guide-section-intro">
-            A starter structure with equity-aligned sections and example
-            language you can adapt.
-          </p>
-          <div className="guide-template">
-            {[
-              {
-                heading: "Course Description",
-                placeholder:
-                  "Write 2–3 sentences describing the course, its goals, and who it is for. Use welcoming, plain language.",
-              },
-              {
-                heading: "Instructor Info & Office Hours",
-                placeholder:
-                  "Name, pronouns, email, and when/where students can find you. Include your response time for emails.",
-              },
-              {
-                heading: "Learning Objectives",
-                placeholder:
-                  "List 3–5 things students will be able to do by the end of the course. Use action verbs.",
-              },
-              {
-                heading: "Materials & Tools",
-                placeholder:
-                  "List required and recommended materials. Note which are free, which cost money, and where to access them.",
-              },
-              {
-                heading: "Accessibility Statement",
-                placeholder:
-                  "Copy from the language bank above, or write your own commitment to access.",
-              },
-              {
-                heading: "Grading & Assessment",
-                placeholder:
-                  "Describe how work will be evaluated. Include rubric criteria or link to them.",
-              },
-              {
-                heading: "Attendance & Participation",
-                placeholder:
-                  "Explain your expectations in plain language. Note any flexibility and what to do if students need to miss class.",
-              },
-              {
-                heading: "Late Work Policy",
-                placeholder:
-                  "State your policy clearly and humanely. Explain the reasoning.",
-              },
-              {
-                heading: "Schedule",
-                placeholder:
-                  "Week-by-week overview of topics, readings, and assignments.",
-              },
-              {
-                heading: "Support Resources",
-                placeholder:
-                  "List campus resources: writing center, counseling, disability services, financial aid, etc.",
-              },
-            ].map(({ heading, placeholder }) => (
-              <div key={heading} className="guide-template-section">
-                <h3 className="guide-template-heading">{heading}</h3>
-                <p className="guide-template-placeholder">{placeholder}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
+        {/* LAND ACKNOWLEDGMENT */}
         <section id="land" className="guide-section">
           <h2 className="guide-section-title">Land Acknowledgment Guide</h2>
           <p className="guide-section-intro">
