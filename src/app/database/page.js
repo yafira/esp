@@ -64,7 +64,8 @@ export default function DatabasePage() {
   const fetchData = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/resources", { cache: "no-store" });
+      const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+      const res = await fetch(`${base}/api/resources`, { cache: "no-store" });
       const json = await res.json();
       setItems(Array.isArray(json.items) ? json.items : []);
     } catch {
@@ -75,10 +76,16 @@ export default function DatabasePage() {
   }, []);
 
   useEffect(() => {
-    fetchData();
-  }, [fetchData]);
+    setLoading(true);
+    fetch(`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/api/resources`, {
+      cache: "no-store",
+    })
+      .then((r) => r.json())
+      .then((json) => setItems(Array.isArray(json.items) ? json.items : []))
+      .catch(() => setItems([]))
+      .finally(() => setLoading(false));
+  }, []);
 
-  // sidebar + search only — drives keyword panel
   const baseFiltered = useMemo(() => {
     const query = q.trim().toLowerCase();
     return items.filter((it) => {
@@ -98,7 +105,6 @@ export default function DatabasePage() {
     });
   }, [items, q, formats, conts, cats]);
 
-  // base + keyword filter — drives cards
   const filtered = useMemo(() => {
     if (!activeKeywords.length) return baseFiltered;
     return baseFiltered.filter((it) => {
@@ -109,7 +115,6 @@ export default function DatabasePage() {
     });
   }, [baseFiltered, activeKeywords]);
 
-  // all unique keywords from base results, properly split
   const allKeywords = useMemo(() => {
     const seen = new Set();
     const out = [];
@@ -139,7 +144,6 @@ export default function DatabasePage() {
 
   return (
     <main className="db-layout container">
-      {/* LEFT: FILTER SIDEBAR */}
       <aside className="db-sidebar" aria-label="Filter resources">
         <div className="db-sidebar-header">
           <span className="db-sidebar-title">Filter</span>
@@ -173,7 +177,6 @@ export default function DatabasePage() {
           onToggle={(t) => setCats((f) => toggleItem(f, t))}
         />
 
-        {/* KEYWORDS — moved into sidebar */}
         <div className="db-keyword-panel" aria-label="Filter by keyword">
           <div className="db-keyword-panel-header">
             <span className="db-keyword-panel-title">Keywords</span>
@@ -223,7 +226,6 @@ export default function DatabasePage() {
         </a>
       </aside>
 
-      {/* MIDDLE: CARDS */}
       <div className="db-main">
         <div className="page-header">
           <h1>Research Database</h1>
