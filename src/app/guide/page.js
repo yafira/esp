@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { bp } from "@/lib/basePath";
 
 export default function GuidePage() {
   return (
@@ -6,7 +7,7 @@ export default function GuidePage() {
       <div className="page-header">
         <div className="research-service-title-row">
           <Image
-            src="/guide.png"
+            src={`${bp}/guide.png`}
             alt=""
             aria-hidden="true"
             width={80}
@@ -88,7 +89,6 @@ export default function GuidePage() {
       </div>
 
       <div className="guide-sections">
-        {/* 5 PRINCIPLES */}
         <section id="principles" className="guide-section">
           <h2 className="guide-section-title">
             5 Principles for Inclusive Teaching
@@ -162,7 +162,6 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* CHECKLIST */}
         <section id="checklist" className="guide-section">
           <h2 className="guide-section-title">Checklist</h2>
           <p className="guide-section-intro">
@@ -190,7 +189,6 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* SAMPLE STATEMENTS */}
         <section id="statements" className="guide-section">
           <h2 className="guide-section-title">Sample Statements</h2>
           <p className="guide-section-intro">
@@ -236,7 +234,6 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* REQUIRED STATEMENTS */}
         <section id="required" className="guide-section">
           <h2 className="guide-section-title">Required Syllabus Statements</h2>
           <p className="guide-section-intro">
@@ -284,7 +281,6 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* EQUITY LANGUAGE BANK */}
         <section id="language" className="guide-section">
           <h2 className="guide-section-title">Equity Language Bank</h2>
           <p className="guide-section-intro">
@@ -322,7 +318,6 @@ export default function GuidePage() {
           </div>
         </section>
 
-        {/* LAND ACKNOWLEDGMENT */}
         <section id="land" className="guide-section">
           <h2 className="guide-section-title">Land Acknowledgment Guide</h2>
           <p className="guide-section-intro">

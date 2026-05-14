@@ -1,63 +1,34 @@
 import Link from "next/link";
-
-function DoodleSquiggle({ className }) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 120 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        d="M4 20 C14 8, 24 32, 34 20 C44 8, 54 32, 64 20 C74 8, 84 32, 94 20 C104 8, 114 32, 120 20"
-        stroke="#a8d5b5"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        fill="none"
-        opacity="0.8"
-      />
-    </svg>
-  );
-}
+import { bp } from "@/lib/basePath";
 
 export default function HomePage() {
   return (
     <main className="home3">
       <section className="hero3" aria-labelledby="hero-title">
         <div className="hero3-paper">
-          {/* DOODLE DECORATIONS */}
           <img
-            src="/scribble.png"
+            src={`${bp}/scribble.png`}
             alt=""
             aria-hidden="true"
             className="doodle doodle--scribble"
           />
           <img
-            src="/doodle.png"
+            src={`${bp}/doodle.png`}
             alt=""
             aria-hidden="true"
             className="doodle doodle--flower"
           />
           <img
-            src="/paper.png"
+            src={`${bp}/paper.png`}
             alt=""
             aria-hidden="true"
             className="doodle doodle--paper"
           />
           <img
-            src="/star.png"
+            src={`${bp}/star.png`}
             alt=""
             aria-hidden="true"
             className="doodle doodle--star-img"
-          />
-
-          {/* NOTEBOOK IMAGE */}
-          <img
-            src="/paper.png"
-            alt=""
-            aria-hidden="true"
-            className="doodle doodle--paper"
           />
 
           <div className="hero3-body">
@@ -162,7 +133,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* TESTIMONIALS */}
           <div className="testimonials">
             <div className="testimonial-blob testimonial-blob--lavender">
               <p className="testimonial-quote">

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { bp } from "@/lib/basePath";
 
 export default function ContributePage() {
   return (
@@ -6,7 +7,7 @@ export default function ContributePage() {
       <div className="page-header">
         <div className="research-service-title-row">
           <Image
-            src="/puzzlepiece.png"
+            src={`${bp}/puzzlepiece.png`}
             alt=""
             aria-hidden="true"
             width={80}

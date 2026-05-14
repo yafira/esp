@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { bp } from "@/lib/basePath";
 
 export default function ResearchServicePage() {
   return (
@@ -6,7 +7,7 @@ export default function ResearchServicePage() {
       <div className="page-header research-service-header">
         <div className="research-service-title-row">
           <Image
-            src="/archive.png"
+            src={`${bp}/archive.png`}
             alt=""
             aria-hidden="true"
             width={80}
@@ -14,9 +15,7 @@ export default function ResearchServicePage() {
             className="research-service-icon"
           />
           <div>
-            <a href="mailto:esp@itp.nyu.edu" className="button button-mint">
-              Request research service ↗
-            </a>
+            <h1>Research Service</h1>
             <p>
               Get help expanding readings and identifying equity gaps in course
               material.
@@ -26,16 +25,14 @@ export default function ResearchServicePage() {
       </div>
       <div className="page-cards">
         <div className="panel panel-cream">
-          <a href="mailto:esp@itp.nyu.edu" className="button button-ink">
-            Learn about the workshop ↗
-          </a>
+          <h2>Research Assistance</h2>
           <p>
             Share your syllabus and our team will recommend resources aligned
             with your goals.
           </p>
-          <button className="button button-mint" type="button">
-            Request research service
-          </button>
+          <a href="mailto:esp@itp.nyu.edu" className="button button-mint">
+            Request research service ↗
+          </a>
         </div>
         <div className="panel panel-blue">
           <h2>Syllabus Review Workshop</h2>
@@ -43,9 +40,9 @@ export default function ResearchServicePage() {
             Collaborative sessions to rework a syllabus with equity-aligned
             practice.
           </p>
-          <button className="button button-ink" type="button">
-            Learn about the workshop
-          </button>
+          <a href="mailto:esp@itp.nyu.edu" className="button button-ink">
+            Learn about the workshop ↗
+          </a>
         </div>
       </div>
     </main>
